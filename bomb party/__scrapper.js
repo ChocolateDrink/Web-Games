@@ -1,16 +1,30 @@
-const storedWords = {};
+let dictionary = [];
+const usedWords = [];
+
+try {
+	const response = await fetch('https://raw.githubusercontent.com/ChocolateDrink/Web-Games/refs/heads/main/bomb%20party/__dictionary.json');
+	if (!response.ok) throw new Error('http error: ' + response.status);
+
+	dictionary = await response.json() || [];
+} catch(err) { }
 
 setInterval(() => {
 	for (const id in milestone.playerStatesByPeerId) {
 		const player = milestone.playerStatesByPeerId[id];
+		if (player === selfPeerId)
+			continue;
+
 		if (player.wasWordValidated === false)
 			continue;
 	
-		let word = player.word;
-		if (storedWords[word])
+		const word = player.word.toUpperCase();
+		if (dictionary.includes(word))
 			continue;
 
-		storedWords[word] = true;
+		if (usedWords.includes(word))
+			continue;
+
+		usedWords.push(word);
 		console.log(word);
 	}
 }, 500);
