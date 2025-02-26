@@ -5,4 +5,4 @@
 - **[Blatant2:](https://github.com/ChocolateDrink/Web-Games/blob/main/bomb%20party/blantant2.js)** Just like blatant but makes more mistakes.
 
 ### Note
-The dictionary currently contains many invalid words, i’m working to remove them.
+The dictionary might contain some invalid words.
