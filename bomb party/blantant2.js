@@ -37,10 +37,11 @@ setInterval(() => {
 	if (milestone.name === 'seating')
 		return;
 
+	const syllable = milestone.syllable.toUpperCase();
 	const matches = core.dictionary.filter(
-		word => word.includes(milestone.syllable) &&
-		!core.invalid.includes(milestone.syllable) &&
-		!core.sent.includes(milestone.syllable)
+		word => word.includes(syllable) &&
+		!core.invalid.includes(syllable) &&
+		!core.sent.includes(syllable)
 	);
 
 	const sorted = matches.sort((a, b) => {

@@ -159,5 +159,5 @@ setInterval(() => {
 	if (milestone.syllable === current)
 		return;
 
-	update(milestone.syllable);
+	update(milestone.syllable.toUpperCase());
 }, 1000);
